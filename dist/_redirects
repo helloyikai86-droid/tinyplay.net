@@ -1,0 +1,5 @@
+# 访问 /monster-survivors 时直接渲染这页（与 canonical 一致）
+/monster-survivors   /index.html   200
+
+# （可选）根路径也指向本页；如果你已有首页，请删掉此行
+/                    /index.html   200
