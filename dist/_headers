@@ -1,0 +1,18 @@
+/* 
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), usb=(), payment=()
+  # 如果允许别人嵌入可以删掉或改为 ALLOW-FROM
+  X-Frame-Options: SAMEORIGIN
+
+# HTML 页面：不做长缓存，避免改动后旧版本残留
+/index.html
+  Cache-Control: no-cache, no-store, must-revalidate
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; frame-src https://cloud.onlinegames.io; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'self'
+
+# 静态资源（若后续有 /assets、/images 等）：强缓存 + 可复用
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
